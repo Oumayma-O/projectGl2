@@ -1,0 +1,29 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+
+    <table>
+        <tr>
+            <td>Matiére</td>
+            <td>Note</td>
+        </tr>
+        {% for matiere , note in app.session.get('notes') %}
+            <tr>
+                <td>{{ matiere }}</td>
+                <td>{{ note }}</td>
+            </tr>
+
+        {% endfor %}
+    </table>
+    <br>
+<div class="container">
+    <br>
+    <div class="alert alert-info">
+      <p> Nombre de notes :  {{app.session.get('notes') | length }} </p> <br>
+      <p> minimum : {{min(app.session.get('notes'))  }} </p> <br>
+        <p>  maximum : {{max(app.session.get('notes')) }} </p>
+
+    </div>
+</div>
+
+{% endblock %}

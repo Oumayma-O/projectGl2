@@ -1,0 +1,39 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    <div class="row">
+    {% for personne in personnes   %}
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{ personne.firstname }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ personne.firstname }} {{ personne.name }}</h6>
+            <p class="card-text">{{ personne.age }}</p>
+            <a href="{{ path('personne_détail',{id:personne.id}) }}" class="card-link">Détails</a>
+            <a href="{{ path('personne_delete',{id:personne.id}) }}" class="card-link">delete</a>
+        </div>
+    </div>
+    {% endfor %}
+        <div class="alert alert-info">
+
+            nombre de personne dans cette intervalle d'age est {{ count['nombrePersonne'] }} et la moyenne d'age est {{ count.moyenne }}
+        </div>
+    </div>
+
+   {#<div class="container">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="{{path('app_personne',{page:page -1 , nbre: nbre}) }}">Previous</a></li>
+                {% for i in range(1,nbrePages) %}
+                <li class="page-item"><a class="page-link" href="{{ path('app_personne',{page:i , nbre: nbre}) }}">{{ i }}</a></li>
+                {% endfor %}
+                <li class="page-item"><a class="page-link" href="{{path('app_personne',{page:page + 1 , nbre: nbre}) }}">Next</a></li>
+            </ul>
+        </nav>
+    </div> #}
+
+{% endblock %}
+
+{% block title %}
+personnes
+{% endblock %}
+

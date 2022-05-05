@@ -1,0 +1,32 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+liste
+{% endblock %}
+
+{% block body %}
+
+<h1>Liste des étudiants</h1>
+<table>
+    <tr>
+        <th> Name </th>
+        <th> Surname </th>
+    </tr>
+    {% for name , surname in app.session.get('liste') %}
+        {% if loop.index is even %}
+    <tr class="table table-dark">
+    <td>{{ name }}</td>
+    <td>{{ surname }}</td>
+    </tr>
+        {% else %}
+            <tr class="table">
+                <td>{{ name }}</td>
+                <td>{{ surname }}</td>
+            </tr>
+{% endif %}
+    {% endfor %}
+</table>
+
+
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'layout.html.twig' %}
+{% block title %}
+Liste des étudiants
+{% endblock %}
+
+{% block body %}
+{{ include('fragments/date.html.twig') }}
+<table class="table">
+    <tr class="table-active">
+        <td> Name </td>
+        <td> Surname </td>
+        <td> Age </td>
+    </tr>
+    {% for user in users %}
+        {% if loop.index is odd  %}
+        <tr class="table-danger  ">
+            <td>{{ user.name }}</td>
+            <td>{{ user.surname }}</td>
+            <td>{{ user.age }}</td>
+
+
+        </tr>
+    {% else %}
+        <tr class="table-warning ">
+            <td>{{ user.name }}</td>
+            <td>{{ user.surname }}</td>
+            <td>{{ user.age }}</td>
+
+        </tr>
+
+        {% endif %}
+
+    {% endfor %}
+</table>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'layout.html.twig' %}
+{% block body %}
+<div>
+    Bonjour <br>
+    Je m'appelle {{ prénom }}<br>
+    J'ai {{ age }}<br>
+    Et je suis de la section {{ section }}
+    <img src="{{ path|defaultImage }}" , alt="moto">
+</div>
+{% endblock %}
+
+{% block title %}
+Cv 
+{% endblock %}
